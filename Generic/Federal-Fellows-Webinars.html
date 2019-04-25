@@ -243,7 +243,41 @@
 
       </div>
 
+<<<<<<< HEAD
     </div>
 
   </div>
 </div>
+=======
+                                                ASMEQuestionOrComments.isValid=function() {
+                                                                ASMEQuestionOrComments.clearValidationMessages(); //clear any existing validation messages
+                                                                var valid = true;
+                                                                var email = ASMEQuestionOrComments.$email.val();
+                                                                var comment = ASMEQuestionOrComments.$comment.val();
+                                                                if (email === null || email === '' || email===ASMEQuestionOrComments.$email.attr('placeholder')) {
+                                                                                ASMEQuestionOrComments.$emailValidation.text(ASMEQuestionOrComments.validationMessage.emailRequired);
+                                                                                valid = false;
+                                                                } else if ($JQ.ASME.validation.isEmail(email) === false) {
+                                                                                ASMEQuestionOrComments.$emailValidation.text(ASMEQuestionOrComments.validationMessage.inValidEmail);
+                                                                                valid = false;
+                                                                }
+                                                                if (comment === null || comment === '' || comment===ASMEQuestionOrComments.$comment.attr('placeholder')) {
+                                                                                ASMEQuestionOrComments.$commentValidation.text(ASMEQuestionOrComments.validationMessage.commentRequired);
+                                                                                valid = false;
+                                                                }
+                                                                return valid;
+                                                };
+                                                $('#send_comments_or_questions').click(function () {
+                                                                //validate
+                                                                if (ASMEQuestionOrComments.isValid()) { //set hidden field
+                                                                                $('#submitting_comments_or_questions').val(true);
+                                                                                $("form" ).submit();
+                                                                } else {
+                                                                                return false;
+                                                                }
+                                                });
+                                }
+                }
+});
+</script>
+>>>>>>> upstream/ASME-migrated-content
